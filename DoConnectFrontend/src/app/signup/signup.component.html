@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a
+    class="navbar-brand"
+    style="margin:0px 1200px 0px 0px;"
+    routerLink="/signup"
+    >DoConnect</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/login"
+          >Log In <span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br />
+<div class="container.mr-auto">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card" style="background-color:rgb(231, 231, 248) ;">
+        <div class="d-flex justify-content-around">
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+            <br />
+            <h3>Registration Form</h3>
+            <br />
+
+            <div class="form-group">
+              <label for="username">User Name </label><br />
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                placeholder="Enter your username"
+                id="username"
+                name="username"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signupForm.get('username').touched &&
+                  signupForm.get('username').invalid
+                "
+              >
+                UserName is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email </label><br />
+              <input
+                type="text"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter your email"
+                id="email"
+                name="email"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signupForm.get('email').touched &&
+                  signupForm.get('email').invalid
+                "
+              >
+                Email is required
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="password">Password </label><br />
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                id="password"
+                placeholder="Enter your password"
+                name="password"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  signupForm.get('password').touched &&
+                  signupForm.get('password').invalid
+                "
+              >
+                Password is required
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="occupation">Occupation</label><br />
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="student"
+                  id="student"
+                  formControlName="occupation"
+                />
+                <label class="form-check-label" for="student">Student</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="expert"
+                  id="expert"
+                  formControlName="occupation"
+                />
+                <label class="form-check-label" for="expert">Expert</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role</label><br />
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="admin"
+                  id="admin"
+                  formControlName="role"
+                />
+                <label class="form-check-label" for="admin">Admin</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  value="user"
+                  id="user"
+                  formControlName="role"
+                />
+                <label class="form-check-label" for="user">User</label>
+              </div>
+            </div>
+
+            <p>
+              <button class="btn btn-success" type="submit">Submit</button>
+            </p>
+            <p>
+              <a routerLink="/login">Already Registered? Click to Login</a
+              ><br />
+            </p>
+          </form>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+<br />

@@ -1,0 +1,43 @@
+<app-admin-header></app-admin-header>
+
+
+<br>
+<div class="container">
+    <div class="card">
+        <h3> You can delete following Answers </h3>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div *ngFor="let question of questions">
+                    <div *ngFor="let answer of answers">
+                        <div *ngIf="question.q_id===answer.q_id">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h4>Title: {{ question.title }}</h4>
+                                    <p>Asked by: {{ question.username }}</p>
+                                    <h4>Question: {{ question.question }}</h4>
+                                    <p>Approved: {{question.approved}}</p>
+
+                                    <h5>Answer: {{answer.answer}} </h5>
+                                    <h6></h6>
+                                    <p>Answered By: {{answer.username}}</p>
+
+
+                                </div>
+                                <div class="modal-footer">
+
+
+                                    <button class="btn btn-success" (click)="delete(answer?.a_id)">
+                                        Delete Answer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<app-header></app-header>
+<br />
+<br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="card" style=" background-color: rgb(231, 231, 245);">
+        <div *ngFor="let msg of msg">
+          <h4 style="color:red ;">Username: {{ msg.username }}</h4>
+          <h5>Message: {{ msg.message }}</h5>
+        </div>
+      </div>
+      <div class="card">
+        <form [formGroup]="chatForm" (ngSubmit)="send()">
+          <input
+            type="text"
+            placeholder="Enter Your Message"
+            class="form-control"
+            formControlName="message"
+            id="message"
+            name="message"
+          />
+          <button
+            class="btn btn-success"
+            style="margin:0px  50px;"
+            type="submit"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

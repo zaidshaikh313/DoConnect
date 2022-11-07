@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a
+    class="navbar-brand"
+    style="margin:0px 1200px 0px 0px;"
+    routerLink="/signup"
+    >DoConnect</a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/signup"
+          >Sign Up <span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<br /><br /><br /><br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card" style="background-color:rgb(231, 231, 248) ;">
+        <div class="d-flex justify-content-around">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <br />
+            <h3>LogIn Form</h3>
+            <br />
+
+            <div class="form-group">
+              <label for="username">UserName </label><br />
+              <input
+                type="text"
+                placeholder="Enter Your UserName"
+                class="form-control"
+                formControlName="username"
+                id="username"
+                name="username"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  loginForm.get('username').touched &&
+                  loginForm.get('username').invalid
+                "
+              >
+                User Name is required
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="password">Password </label><br />
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter Your Password"
+                formControlName="password"
+                id="password"
+                name="password"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  loginForm.get('password').touched &&
+                  loginForm.get('password').invalid
+                "
+              >
+                Password is required
+              </span>
+            </div>
+
+            <p>
+              <button
+                class="btn btn-success"
+                style="margin:0px  50px;"
+                type="submit"
+              >
+                Submit
+              </button>
+            </p>
+            <p>
+              <a routerLink="/signup">New User? Click to Register</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

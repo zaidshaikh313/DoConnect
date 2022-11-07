@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" style="margin:0px 600px 0px 0px;" >DoConnect</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active ">
+          <form class="form-inline mr-auto" [formGroup]="searchForm" (ngSubmit)="search()">
+            <input class="form-control" type="text" formControlName="searchStr" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}"
+            >Dashboard </a
+          >
+        </li>
+      
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/askQuestion" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}"
+            >Ask a Question </a
+          >
+        </li>
+    
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/chat" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}"
+              >Chat </a
+            >
+          </li>
+          <li class="nav-item active ">
+            <a class="nav-link" (click)="logout()" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+              true}"
+              >LogOut </a
+            >
+          </li>
+      </ul>
+    </div>
+  </nav>

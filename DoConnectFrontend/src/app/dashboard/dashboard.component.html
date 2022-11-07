@@ -1,0 +1,38 @@
+<app-header></app-header>
+<br>
+<div class="container">
+    <div class="card">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let question of questions">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>Title: {{ question.title }}</h4>
+                        <p>Asked by: {{ question.username }}</p>
+                        <h4>Question: {{ question.question }}</h4>
+                        <div *ngFor="let answer of answers">
+                            <div  *ngIf="question.q_id===answer.q_id">
+                               <h5>Answer: </h5>
+                                <h6>   {{answer.answer}}</h6>
+                                <p>Answered By: {{answer.username}}</p>
+                                <div *ngIf="answer.returnedImage!=null">
+                                    <img style=" border-radius: 15px;" width="100%" [src]="answer.returnedImage" />
+                                </div>
+    
+                            </div>
+                         
+                        </div>
+                    </div>     
+                    <div class="modal-footer">
+                      
+            
+                        <button class="btn btn-success" (click)="addAnswer(question?.q_id)">
+                          Add Your Answer
+                        </button>
+                      </div>        
+                </div>
+            </li>
+         
+        </ul>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<app-admin-header></app-admin-header>
+
+<br>
+<div class="container">
+    <div class="card">
+       <h3> Approval is pending for following Questions </h3>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let question of questions">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>Title: {{ question.title }}</h4>
+                        <p>Asked by: {{ question.username }}</p>
+                        <h4>Question: {{ question.question }}</h4>
+                    
+                    </div>     
+                    <div class="modal-footer">
+                      
+            
+                        <button class="btn btn-success" (click)="approve(question?.q_id)">
+                          Approve Question
+                        </button>
+                      </div>        
+                </div>
+            </li>
+         
+        </ul>
+
+    </div>
+</div>
